@@ -4,10 +4,12 @@ const express = require('express');
 const server = express();
 const port = process.env.PORT || 8084;
 
+const routerDefault = require('./router/default');
+const routerEdit = require('./router/edit');
+
 server.use(express.static('public'));
 
-
-const routerDefault = require('./router/default');
+server.use('/edit', routerEdit);
 server.use('/', routerDefault);
 
 

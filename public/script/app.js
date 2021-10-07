@@ -51,5 +51,4 @@ const img_hide = () => {
         swan.style.display = 'none';
         button.textContent = 'show';
     }
-    
 }
