@@ -5,11 +5,12 @@ const server = express();
 const port = process.env.PORT || 8084;
 
 const routerDefault = require('./router/default');
-const routerEdit = require('./router/edit');
+// const routerEdit = require('./router/edit');
+
+server.use(express.urlencoded());
 
 server.use(express.static('public'));
 
-server.use('/edit', routerEdit);
 server.use('/', routerDefault);
 
 
