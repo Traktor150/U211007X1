@@ -13,21 +13,24 @@ exports.edit = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    console.log('data: ' + req.body.headline);
-    console.log('data: ' + req.body.intro);
-    console.log('data: ' + req.body.articelImage);
+    // console.log('data: ' + req.body.headline);
+    // console.log('data: ' + req.body.intro);
+    // console.log('data: ' + req.body.articelImage);
 
+    // hemtar in data i varibler med samma namn son nyckeln i json
     const headline = req.body.headline;
     const intro = req.body.intro;
     const articelImage = req.body.articelImage;
 
+    // Sammlar all data i en variabel     
+    const test = {headline, intro, articelImage};
+
+    // gör om till en json string
+    const testAnka = JSON.stringify(test);
+
+    // skriver det i filen 
     const fs = require('fs');
     
-    const test = {headline, intro, articelImage};
-    
-    const testAnka = JSON.stringify(test);
-    
-
     fs.writeFile('./public/data/exercise1.json', testAnka, err => {
         if (err) {
             console.error(err);
