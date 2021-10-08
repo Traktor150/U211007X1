@@ -2,20 +2,24 @@
 
 console.log('I am also Alive edit.');
 
+// Frågar efter datan som är i jasonfilen.
 const dataURL = '../data/exercise1.json';
 const req = new XMLHttpRequest();
 req.open('GET', dataURL);
 req.responseType = 'json';
 req.send()
 
+// skapar det som behövs när datan kommer 
 req.onload = () => {
-    const data = req.response;
+    const data = req.response; // lägger datan i en variabel
     
+    // skapar en form som kommer hantera postrequesten till servern
     const inpitForm = document.createElement('form');
-    inpitForm.id = 'datasorce';
-    inpitForm.action = '/edit';
-    inpitForm.method = 'POST';
-    document.getElementById('Exercise4').appendChild(inpitForm);
+    inpitForm.id = 'datasorce'; 
+    inpitForm.action = '/edit'; // Vart den skickar requesten 
+    inpitForm.method = 'POST'; // vilken metod den använder
+    // lägger in det i formuläret (kan inte lägga in saker i den annars)
+    document.getElementById('Exercise4').appendChild(inpitForm); 
     
     const txb = document.createElement('input');
     txb.style.display = 'block';
